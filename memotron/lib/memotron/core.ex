@@ -6,4 +6,8 @@ defmodule Memotron.Core do
   def increment(value) do
     value + 1
   end
+
+  def decrement(value) do
+    value - 1
+  end
 end
