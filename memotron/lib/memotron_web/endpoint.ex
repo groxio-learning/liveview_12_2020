@@ -7,7 +7,7 @@ defmodule MemotronWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_memotron_key",
-    signing_salt: "2s5MwmKh"
+    signing_salt: "roFaIP9l"
   ]
 
   socket "/socket", MemotronWeb.UserSocket,

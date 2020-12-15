@@ -13,10 +13,10 @@ config :memotron,
 # Configures the endpoint
 config :memotron, MemotronWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "03xxUu/39xTiu3/7w5bp+YktotE5Gj3cPxPNmkfGLZWb5xGn5FQU0MhMDZYXiJvt",
+  secret_key_base: "vcnahMvtS6FWNfwzHyKJ1Xwcj5ruAF7EA+3AJgVDFxZ0g0j0WYHQnp7e0XfCqXeM",
   render_errors: [view: MemotronWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Memotron.PubSub,
-  live_view: [signing_salt: "21ZN4XRh"]
+  live_view: [signing_salt: "lWuxl8JP"]
 
 # Configures Elixir's Logger
 config :logger, :console,
