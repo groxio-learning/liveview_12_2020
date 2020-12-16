@@ -1,0 +1,16 @@
+name: elixir
+image: 143065791063.dkr.ecr.us-east-1.amazonaws.com/shared-dev-baseline:master-727cdd0e
+sync:
+  - ./:/app
+command:
+  - zsh
+workdir: /app
+resources:
+  requests:
+    memory: "4096Mi"
+    cpu: "1000m"
+forward:
+  - 4000:4000
+  - 8432:postgres:5432
+persistentVolume:
+  enabled: true
