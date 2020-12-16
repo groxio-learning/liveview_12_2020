@@ -16,6 +16,16 @@ defmodule MemotronWeb.CounterLive do
   end
 
   # Event Handlers
+  def handle_event("fast_increment", _, socket) do
+    {:noreply, socket |> inc() |> inc() }
+  end
+
+  def handle_event("fast_decrement", _, socket) do
+    {:noreply, socket |> dec() |> dec() }
+  end
+
+
+  # Event Handlers
   def handle_event("increment", _, socket) do
     {:noreply, inc(socket)}
   end
