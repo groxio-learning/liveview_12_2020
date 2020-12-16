@@ -13,8 +13,6 @@ import "../css/app.scss"
 //     import socket from "./socket"
 //
 import "phoenix_html"
-<<<<<<< HEAD
-=======
 import {Socket} from "phoenix"
 import NProgress from "nprogress"
 import {LiveSocket} from "phoenix_live_view"
@@ -35,4 +33,3 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
->>>>>>> 6fb2fbabb31a1379bb23ee217c61148463611c36
