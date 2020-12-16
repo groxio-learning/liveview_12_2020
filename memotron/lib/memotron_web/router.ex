@@ -17,8 +17,8 @@ defmodule MemotronWeb.Router do
   scope "/", MemotronWeb do
     pipe_through :browser
 
-
-    live "/", CounterLive
+    live "/", PageLive, :index
+    live "/count", CounterLive
   end
 
   # Other scopes may use custom stacks.
