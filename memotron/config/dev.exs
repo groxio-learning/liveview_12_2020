@@ -9,6 +9,8 @@ config :memotron, Memotron.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+### Oktito setup: set hostname == "postgres"
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
