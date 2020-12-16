@@ -16,7 +16,6 @@ defmodule MemotronWeb.Router do
 
   scope "/", MemotronWeb do
     pipe_through :browser
-
     live "/", PageLive, :index
     live "/count", CounterLive
     live "/play", EraserLive
