@@ -101,4 +101,31 @@ defmodule Memotron.Library do
   def change_passage(%Passage{} = passage, attrs \\ %{}) do
     Passage.changeset(passage, attrs)
   end
+
+
+  def get_first_id() do
+
+    (from p in Passage, limit: 1, select: p.id, order_by: [asc: :id])
+    |> Repo.one
+
+  end
+
+  def get_last_id() do
+
+    (from p in Passage, limit: 1, select: p.id, order_by: [desc: :id])
+    |> Repo.one
+
+  end
+
+  def next(id) do
+    (from p in Passage, limit: 1, where: p.id > ^id, select: p.id, order_by: [asc: :id])
+    |> Repo.one
+    |> Kernel.||( get_first_id() )
+  end
+
+  def previous(id) do
+    (from p in Passage, limit: 1, where: p.id < ^id, select: p.id, order_by: [desc: :id])
+    |> Repo.one
+    |> Kernel.||( get_last_id() )
+  end
 end

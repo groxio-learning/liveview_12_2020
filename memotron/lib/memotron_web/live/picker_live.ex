@@ -1,6 +1,6 @@
 defmodule MemotronWeb.PickerLive do
   use MemotronWeb, :live_view
-  alias Memotron.TempLib.Core
+  alias Memotron.Library
 
   @impl true
   def mount(_params, _session, socket) do
@@ -16,10 +16,12 @@ defmodule MemotronWeb.PickerLive do
   def render(assigns) do
    ~L"""
    <H1>MemoTron</H1>
-   <pre><%= @id %></pre>
+   <pre><%= @passage.name %></pre>
    <button phx-click="previous">previous!</button>
    <button phx-click="next">next!</button>
-   <pre><%= inspect(@passage) %></pre>
+   <pre><%= inspect(@passage.text) %></pre>
+
+   <button phx-click="choose">Choose?</button>
    """
   end
 
@@ -32,19 +34,23 @@ defmodule MemotronWeb.PickerLive do
     {:noreply, socket |> previous |> get_passage}
   end
 
+  def handle_event("choose", _meta, socket) do
+    {:noreply, push_redirect(socket, to: "/play/#{socket.assigns.id}")}
+  end
+
   def get_passage(socket) do
-    assign(socket, passage: Core.find_by_id(socket.assigns.id))
+    assign(socket, passage: Library.get_passage!(socket.assigns.id))
   end
 
   def first_passage_id(socket) do
-    assign(socket, id: Core.get_first_id())
+    assign(socket, id: Library.get_first_id())
   end
 
   def next(socket) do
-    assign(socket, id: Core.next(socket.assigns.id))
+    assign(socket, id: Library.next(socket.assigns.id))
   end
 
   def previous(socket) do
-    assign(socket, id: Core.previous(socket.assigns.id))
+    assign(socket, id: Library.previous(socket.assigns.id))
   end
 end
