@@ -22,6 +22,10 @@ defmodule Memotron.TempLib.Core do
       Enum.find(@passages, fn x -> x.id == id end) |> Map.get(:text)
   end
 
+  def get_first_id() do
+    List.first(@passages).id
+  end
+
   #Return next id
   def next(:terminator), do: :princessbride
   def next(:it_crowd), do: :terminator

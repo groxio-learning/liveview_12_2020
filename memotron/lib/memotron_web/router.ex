@@ -19,7 +19,7 @@ defmodule MemotronWeb.Router do
     live "/", PageLive, :index
     live "/count", CounterLive
     live "/play", EraserLive
-
+    live "/choose", PickerLive
   end
 
   # Other scopes may use custom stacks.
