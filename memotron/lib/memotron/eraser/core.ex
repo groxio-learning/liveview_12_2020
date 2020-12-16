@@ -1,8 +1,12 @@
 defmodule Memotron.Eraser.Core do
   defstruct [:schedule, :text]
 
-  def new(text, steps) do
-    %__MODULE__{}
+  def new(text, steps) when is_binary(text) and is_integer(steps) do
+    l = String.length(text)
+
+    schedule = Enum.shuffle(1..l) |> Enum.chunk_every(Kernel.ceil(l/steps))
+
+    %__MODULE__{text: text, schedule: schedule}
   end
 
   def erase(%{schedule: []} = eraser) do
@@ -30,6 +34,4 @@ defmodule Memotron.Eraser.Core do
   defp replace_character(character, false) do
     character
   end
-
-  def example, do: %__MODULE__{text: "abcde", schedule: [[1, 2, 3], [4, 5]]}
 end
