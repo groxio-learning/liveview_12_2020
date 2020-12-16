@@ -10,6 +10,7 @@ defmodule MemotronWeb.EraserLive do
     {:ok, assign(socket, text: text, steps: steps, eraser: Core.new(text, steps))}
   end
 
+  @impl true
   def render(assigns) do
    ~L"""
    <H1>MemoTron</H1>
@@ -20,6 +21,7 @@ defmodule MemotronWeb.EraserLive do
   end
 
   # Event Handlers
+  @impl true
   def handle_event("erase", _, socket) do
     {:noreply, socket |> erase }
   end

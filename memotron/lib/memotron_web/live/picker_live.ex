@@ -2,6 +2,7 @@ defmodule MemotronWeb.PickerLive do
   use MemotronWeb, :live_view
   alias Memotron.TempLib.Core
 
+  @impl true
   def mount(_params, _session, socket) do
     {
       :ok,
@@ -11,6 +12,7 @@ defmodule MemotronWeb.PickerLive do
     }
   end
 
+  @impl true
   def render(assigns) do
    ~L"""
    <H1>MemoTron</H1>
@@ -21,6 +23,7 @@ defmodule MemotronWeb.PickerLive do
    """
   end
 
+  @impl true
   def handle_event("next", _meta, socket) do
     {:noreply, socket |> next |> get_passage}
   end
