@@ -7,6 +7,7 @@ defmodule MemotronWeb.CounterLive do
     {:ok, assign(socket, count: Core.new(42))}
   end
 
+  @impl true
   def render(assigns) do
    ~L"""
    <H1>You have <%= @count %> cats.</H1>
@@ -16,6 +17,7 @@ defmodule MemotronWeb.CounterLive do
   end
 
   # Event Handlers
+  @impl true
   def handle_event("fast_increment", _, socket) do
     {:noreply, socket |> inc() |> inc() }
   end
@@ -23,7 +25,6 @@ defmodule MemotronWeb.CounterLive do
   def handle_event("fast_decrement", _, socket) do
     {:noreply, socket |> dec() |> dec() }
   end
-
 
   # Event Handlers
   def handle_event("increment", _, socket) do
