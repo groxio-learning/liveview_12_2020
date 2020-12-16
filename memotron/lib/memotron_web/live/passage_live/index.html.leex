@@ -12,9 +12,9 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Text</th>
       <th>Steps</th>
-      <th>Name</th>
 
       <th></th>
     </tr>
@@ -22,9 +22,9 @@
   <tbody id="passages">
     <%= for passage <- @passages do %>
       <tr id="passage-<%= passage.id %>">
+        <td><%= passage.name %></td>
         <td><%= passage.text %></td>
         <td><%= passage.steps %></td>
-        <td><%= passage.name %></td>
 
         <td>
           <span><%= live_redirect "Show", to: Routes.passage_show_path(@socket, :show, passage) %></span>
