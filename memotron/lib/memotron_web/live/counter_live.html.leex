@@ -1,3 +1,4 @@
-<H1>You have <%= @count %> cats.</H1>
+<!-- H1>You have <%= @count %> cats.</H1 -->
+<%= live_component( @socket, MemotronWeb.CounterMessageComponent, %{message: "Yarr, there be #{@count} cats!"}, []) %>
 <button phx-click="count" phx-value-direction="up">More Cats</button>
 <button phx-click="count" phx-value-direction="down">Fewer Cats</button>
