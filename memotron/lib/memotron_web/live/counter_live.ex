@@ -1,5 +1,6 @@
 defmodule MemotronWeb.CounterLive do
   use MemotronWeb, :live_view
+  import Phoenix.LiveView.Helpers
   alias Memotron.Core
 
   @impl true
@@ -13,12 +14,12 @@ defmodule MemotronWeb.CounterLive do
     {:noreply, socket |> inc() |> inc() }
   end
   @impl true
-  def handle_event("count", %{"value" => %{"direction" => "up"}},socket) do
+  def handle_event("count", %{"direction" => "up"},socket) do
     {:noreply, socket |> inc() }
   end
 
   @impl true
-  def handle_event("count", %{"value" => %{"direction" => "down"}},socket) do
+  def handle_event("count", %{"direction" => "down"},socket) do
     {:noreply, socket |> dec() }
   end
 
